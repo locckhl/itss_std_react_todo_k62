@@ -36,6 +36,14 @@ function Todo() {
     putItems(newItems);
   };
   
+  const handleEnter = (e) =>{
+    // const newItems = items
+    // console.log("submitted")
+    putItems(items => [
+      ...items,
+      { key: getKey(), text: e.target.value, done: false }
+    ])
+  }
   
 
   return (
@@ -43,6 +51,7 @@ function Todo() {
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+      <Input onSubmit={handleEnter}></Input>
       {items.map(item => (
         <TodoItem item={item} key={item.key} onCheck={handleCheck}/>
       ))}
