@@ -8,7 +8,7 @@ function TodoItem( {item, onCheck} ) {
 
   return (
     <label className="panel-block">
-      <input type="checkbox"  onChange={() => {
+      <input type="checkbox" checked={item.done} onChange={() => {
         onCheck(item)
       }}/>
       <span className={item.done? 'has-text-grey-light':''}>
